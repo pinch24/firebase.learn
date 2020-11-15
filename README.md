@@ -1,2 +1,1 @@
-# firebase.learn
-Learning Firebase
+# Learning Firebase

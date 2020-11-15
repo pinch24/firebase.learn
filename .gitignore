@@ -1,7 +1,8 @@
-# Mac OS X
+# MacOSX
 .DS_Store
 
 # Ulysses
+.Ulysses-favorites.plist
 .Ulysses-Group.plist
 
 # Logs

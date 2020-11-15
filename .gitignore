@@ -1,3 +1,9 @@
+# Mac OS X
+.DS_Store
+
+# Ulysses
+.Ulysses-Group.plist
+
 # Logs
 logs
 *.log

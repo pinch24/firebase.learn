@@ -1,0 +1,16 @@
+{
+	"applinks": {
+		"apps": [],
+		"details": [
+			{
+				"appID": "JAFVLB96C5.io.desivel.kolon.iken",
+				"paths": ["*"]
+			},
+			{
+				"appID": "JAFVLB96C5.io.desivel.kolon.iken-dev",
+				"paths": ["*"]
+			}
+		]
+	}
+}
+}

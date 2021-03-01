@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FB_Trouble</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: FB_Trouble;
+		--web-view-id: FB_Trouble;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: fit;
+		--web-application: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: FB_Trouble;
+	}
+	#FB_Trouble {
+		position: absolute;
+		width: 414px;
+		height: 896px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		--web-view-name: FB_Trouble;
+		--web-view-id: FB_Trouble;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: fit;
+		--web-application: true;
+		--web-enable-deep-linking: true;
+	}
+	#______ {
+		left: 19px;
+		top: 738px;
+		position: absolute;
+		overflow: visible;
+		width: 378px;
+		height: 64px;
+		text-align: center;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+	}
+	#__ {
+		left: 19px;
+		top: 448px;
+		position: absolute;
+		overflow: hidden;
+		width: 378px;
+		height: 62px;
+		text-align: center;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 42px;
+		color: rgba(0,0,0,1);
+	}
+	#Image_1 {
+		position: absolute;
+		width: 233px;
+		height: 216px;
+		left: 91px;
+		top: 114px;
+		overflow: visible;
+	}
+	#FB_Input {
+		left: 0px;
+		top: 780px;
+		position: absolute;
+		overflow: visible;
+		width: 414px;
+		height: 44px;
+		text-align: center;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 44px;
+		color: rgba(0,0,0,1);
+	}
+</style>
+
+<script type="text/javascript">
+		function getDevice() {
+
+				var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+				if (/android/i.test(userAgent)) {
+						return "Android";
+				}
+				else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+						return "iOS";
+				}
+				else { return "unknown"; }
+		}
+
+		function initPage() {
+
+			var message = {
+					'action': 'setDate',
+					'name': 'UserAccessDate'
+			};
+
+			if (getDevice() == "iOS")
+					window.webkit.messageHandlers.fb_trouble.postMessage(message);
+			else if (getDevice() == "Android")
+					window.fb_trouble.postMessage(message);
+	}
+
+	function tapCancel() {
+
+		if (getDevice() == "iOS")
+				window.webkit.messageHandlers.fb_trouble.postMessage('tapCancel');
+		else if (getDevice() == "Android")
+			window.fb_trouble.postMessage('tapCancel');
+	}
+
+	function tapConfirm() {
+
+			var message = {
+					'action': 'confirm',
+					'function': 'proceed'
+			};
+
+			if (getDevice() == "iOS")
+					window.webkit.messageHandlers.fb_trouble.postMessage(message);
+			else if (getDevice() == "Android")
+					window.fb_trouble.postMessage(message);
+	}
+
+	function proceed(text) {
+
+			alert(text);
+	}
+</script>
+</head>
+
+<body>
+<div id="FB_Trouble">
+	<div id="______">
+		<span>서비스에 장애가 있어<br/>지금은 이용할 수 없습니다.</span>
+	</div>
+	<div id="__">
+		<span>장애 안내</span><span style="font-style:normal;font-weight:normal;"></span><br>
+	</div>
+</div>
+<!-- <div id="FB_Input">
+	<div id='container' align='center'>
+		<button onclick='alert(UserAccessDate);' style='margin-top: 10px'>Access Date</button>
+		<button onclick='tapCancel();' style='margin-top: 10px'>Cancel</button>
+		<button onclick='tapConfirm();' style='margin-top: 10px'>Confirm</button>
+</div> -->
+</body>
+</html>

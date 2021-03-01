@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FB_Work</title>
+<script type="text/javascript">
+	function setUserAccessDate() {
+
+		var message = {
+				'menuName': 'setDate',
+				'menuParam': 'UserAccessDate'
+		};
+
+		window.webkit.messageHandlers.fb_work.postMessage(message);
+	}
+
+	function tapCancel() {
+
+			window.webkit.messageHandlers.fb_work.postMessage('tapCancel');
+	}
+
+	function tapConfirm() {
+
+			var message = {
+					'action': 'confirm',
+					'function': 'proceed'
+			};
+
+			window.webkit.messageHandlers.fb_work.postMessage(message);
+	}
+
+	function proceed(text) {
+
+			alert('Confirm\n' + text);
+	}
+</script>
+</head>
+
+<body>
+<div id="FB_Work">
+	<div>
+		<div id='container' align='center'>
+			<h1>장애안내</h1>
+			<button onclick='alert('Message\n' + message);' style='margin-top: 10px'>ALERT!</button></br>
+			<button onclick='tapCancel();' style='margin-top: 10px'>Cancel</button></br>
+			<button onclick='tapConfirm();' style='margin-top: 10px'>Confirm</button></br>
+	</div>
+</div>
+</body>
+</html>

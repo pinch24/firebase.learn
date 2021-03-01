@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Default Page</title>
+<script type="text/javascript">
+	function initPage() {
+
+		var message = {
+				'action': 'setDate',
+				'name': 'UserAccessDate'
+		};
+
+		window.webkit.messageHandlers.default_page.postMessage(message);
+	}
+
+	function tapCanc
+	el() {
+
+			window.webkit.messageHandlers.default_page.postMessage('tapCancel');
+	}
+
+	function tapConfirm() {
+
+			var message = {
+					'action': 'confirm',
+					'function': 'proceed'
+			};
+
+			window.webkit.messageHandlers.default_page.postMessage(message);
+	}
+
+	function proceed(text) {
+
+			alert('Confirm\n' + text);
+	}
+</script>
+</head>
+
+<body>
+<div id="default_div">
+	<div>
+		<div id='default_container' align='center'>
+			<h1>장애안내</h1>
+			<button onclick='alert('Message\n' + message);' style='margin-top: 10px'>ALERT!</button></br>
+			<button onclick='tapCancel();' style='margin-top: 10px'>Cancel</button></br>
+			<button onclick='tapConfirm();' style='margin-top: 10px'>Confirm</button></br>
+	</div>
+</div>
+</body>
+</html>
